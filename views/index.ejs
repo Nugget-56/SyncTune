@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Aayush">
+    <meta name="description" content="SyncTune helps you synchronize songs and playlists across your music listening services"/>
+
+    <title>SyncTune</title>
+
+    <link rel="icon" type="image/x-icon" href="/images/logos/small-logo2.png"/>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <script src="/scripts/animate.js" defer></script>
+    <script src="/scripts/profile.js" defer></script>
+  </head>
+
+  <body>
+    
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+			<div class="landing">
+        <img class="mainbg" src="images/augustine-wong-T0BYurbDK_M-unsplash.jpg" alt="Music festival background">
+        <div class="greet">
+          <h1 class="hidden">
+            Sync your favourite songs <br> across different apps <br> and <span class="grad"> seamlessly </span> enjoy your music
+          </h1>
+        </div>
+			</div>
+      <div class="info-container">
+        <div class="info-one"> To get started </div>
+        <div class="line-container"> 
+          <div class="info hidden-move"> Login and set up your profile </div>
+          <div class="line hidden-move"> </div>
+        </div>
+        <div class="line-container">           
+          <div class="info hidden-move"> Connect your Spotify and Youtube accounts </div>
+          <div class="line hidden-move"> </div>
+        </div>
+        <div class="line-container">
+          <div class="info hidden-move"> Add the playlists you wish to synchronize together </div>
+          <div class="line hidden-move"> </div>
+        </div>
+        <div class="line-container">
+          <div class="info hidden-move"> And never have to go through the hassle of adding songs manually between apps again! </div>
+          <div class="line hidden-move"> </div>
+        </div>
+      </div>
+    </main>
+
+    <% if (!loggedIn) { %>
+      <%- include('login.ejs') %>
+    <% } %>
+
+    <%- include('./partials/footer.ejs') %>
+    
+  </body>
+</html>

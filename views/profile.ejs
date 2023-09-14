@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="Aayush">
+    <meta name="description" content="SyncTune helps you synchronize songs and playlists across your music listening services"/>
+
+    <title>SyncTune</title>
+
+    <link rel="icon" type="image/x-icon" href="/images/logos/small-logo2.png"/>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <link rel="stylesheet" href="/styles/profileStyle.css"/>
+    <script src="/scripts/animate.js" defer></script>
+    <script src="/scripts/profile.js" defer></script>
+  </head>
+
+  <body>
+    
+    <%- include('./partials/header.ejs') %>
+
+    <main>
+			<div class="profile-container">
+        <div class="welcome-container">
+          <div class="welcome-text hidden-one">
+            Welcome <%= locals.userName %>!
+          </div>
+          <button class="sign-out" >
+            Sign out
+          </button>
+        </div>
+
+        <div class="connect-container">
+          <div class="connect-container-text hidden-move">
+            Connect your accounts
+          </div>
+          <span class="connect-container-line"></span>
+          <div class="box-cc-1">
+            <div class="spotify-container ">
+              <a href="/spotify-login"><button class="spotify"> Spotify </button></a>
+            </div>
+            <div class="youtube-container ">
+              <a href="/youtube-login"><button class="youtube"> Youtube </button></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="playlist-container">
+          <div class="playlist-container-text hidden-move">
+            Paste the link to your playlists
+          </div>
+          <span class="connect-container-line"></span>
+          <div class="box-cc-1">
+            <form id="playlist-form" action="/playlist" method="post">
+              <!-- <label for="email">img</label> -->
+              <div class="input-link">
+                <input type="url" name="spotifyPlaylist" id="spotifyPlaylist" placeholder="Add your Spotify playlist here" required>
+                <span></span>
+              </div>
+              <div class="input-link">
+                <input type="url" name="youtubePlaylist" id="youtubePlaylist" placeholder="Add your Youtube playlist here" required>
+                <span></span>
+              </div>
+              <button type="submit" id="playlist-button"> Submit </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="sync-container">
+          <div class="sync-container-text hidden-move">
+            Start syncing
+          </div>
+          <span class="connect-container-line"></span>
+          <div class="box-cc-1"> 
+            <form id="sync-form" action="/sync" method="post">
+              <div class="radio-title">
+                Choose a setting
+              </div>
+              <div class="input-source">
+                <input type="radio" name="source" id="spotifyRadio" value="spotify">
+                <label for="spotifyRadio"> Spotify to Youtube </label>
+              </div>
+              <div class="input-source">
+                <input type="radio" name="source" id="youtubeRadio" value="youtube">
+                <label for="youtubeRadio"> Youtube to Spotify </label>
+              </div>
+              <div class="input-source">
+                <input type="radio" name="source" id="syncRadio" value="sync">
+                <label for="syncRadio"> Sync every hour </label>
+              </div>
+              <button type="submit" id="sync-button"> Sync now </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+    
+  </body>
+</html>

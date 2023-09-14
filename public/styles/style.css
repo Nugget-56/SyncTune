@@ -1,0 +1,596 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=DM+Serif+Display&family=Inconsolata:wght@300;400;500&family=Indie+Flower&family=Montserrat:wght@500&family=Orbitron:wght@400;500&family=Shadows+Into+Light&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    overflow-y: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar { 
+    width: 0;
+    height: 0;
+}
+
+:root {
+    font-size: 16px;
+    --main: palevioletred;
+    --main2: #9370db;
+    --bg-dark: #121212;
+    --bg-grey: #252525;
+}
+
+body {
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-dark);
+    color: white;
+    width: 100%;
+}
+
+.logo-container {
+    margin: 0.5rem;
+    cursor: pointer;
+    width: 150px;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.navbar-items, .footer-items {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.navbar-items li, .footer-items li {
+    list-style: none;
+    display: inline-block;
+
+}
+
+.navbar-items li a, .footer-items li a {
+    text-decoration: none;
+    padding: 1rem;
+    transition: all 0.3s ease 0s;
+    color: #F6F6F7;
+}
+
+.navbar-items li a:hover{
+    color: var(--main);
+}
+
+.toggle-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding : 1rem;
+}
+
+.sign-out {
+    height: 40px;
+    width: 100px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background-color: var(--bg-dark);
+    border: 3px solid var(--main2);
+    font-weight: 500;
+    color: white;
+    font-family: 'Comfortaa', cursive;
+}
+
+.sign-out:hover {
+    background-color: var(--main2);
+    color: black;
+}
+
+.sign-out:active {
+    background-color: #492590;
+    border-color: #492590;
+    color: black;
+}
+
+@media (max-width: 700px) {
+    .toggle-button {
+        display: flex;
+    } 
+
+    .navbar-items {
+        display: none;
+        width: 100%;
+        transition: display 0.5s ease 0s;
+        opacity: 0; 
+        padding: 0;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-items {
+        flex-direction: column;
+    }
+
+    .nav-buttons {
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
+
+    .navbar-items li {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-items li {
+        text-align: center;
+        padding: 1.2rem;
+    }
+
+    .navbar-items.active {
+        display: flex;
+        opacity: 1; 
+        padding: 1rem; 
+    }
+}
+
+.landing {
+    display: flex;
+    width: 100vw;
+    max-height: fit-content;
+    position: relative;
+    flex-direction: column;
+}
+
+.mainbg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.greet {
+    display: flex;
+    height: 95vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 180%;
+    color: black;
+ 
+}
+
+h1 {
+    width: 100%;
+}
+
+h1 > .grad  {
+    animation: bg-grad 2.5s linear infinite;
+    background: linear-gradient(
+        to right,
+        #9370db,
+        palevioletred,
+        pink,
+        #9370db
+    );
+
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+}
+
+@keyframes bg-grad {
+    from {
+        background-position: 0% center;
+    }
+    to {
+        background-position: 200% center;
+    }
+}
+
+@media (max-width: 1000px) {
+    .greet {
+        font-size: 160%;
+    }
+}
+
+@media (max-width: 800px) {
+    .greet {
+        font-size: 130%;
+    }
+}
+
+@media (max-width: 700px) {
+    .greet {
+        font-size: 90%;
+    }
+}
+
+@media (max-width: 500px) {
+    .greet {
+        padding-top: 10%;
+        font-size: 60%;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transition: all 1.5s;
+}
+
+@media (prefers-reduced-motion) {
+    .hidden {
+      transition: all 1s;
+    }
+}
+
+.show {
+    opacity: 1;
+}
+
+.info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: fit-content;
+    background-color: #121212;
+    color: var(--main);
+    z-index: 9;
+    padding-bottom: 120px;
+    position: relative;
+}
+
+.line-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.5rem;   
+    gap: 5px;
+    max-width: fit-content;
+}
+
+.info-one {
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-left: 1.5vw;
+    margin-bottom: 20px;
+}
+
+.info {
+    display: flex;
+    height: auto;  
+    width: auto;
+    padding-left: 18vw;
+    padding-right: 10px;
+    font-family: 'Comfortaa', cursive;
+    color: white;
+}
+
+.line {
+    background-color: var(--main);  
+    height: 15px; 
+    width: 100%; 
+}
+
+.line:last-child {
+    margin-bottom: 20px;
+}
+
+.hidden-move {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: all 1.5s;
+}
+
+@media (prefers-reduced-motion) {
+    .hidden-move{
+      transition: all 1s;
+    }
+}
+
+.show-move {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.line-container:nth-child(2) {
+    transition-delay: 300ms;
+}
+
+.line-container:nth-child(3) {
+    transition-delay: 400ms;
+}
+
+.line-container:nth-child(4) {
+    transition-delay: 600ms;
+}
+
+.line-container:nth-child(5) {
+    transition-delay: 800ms;
+}
+
+.toggle-container, .login-toggle-container, .register-toggle-container {
+    display: flex;
+    position: absolute;
+    padding: 10px;
+    align-self: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+#login-toggle, #register-toggle {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    background-color: var(--main2);
+    border: none;
+    transition: transform, background-color;
+    transition-timing-function: ease;
+    transition-duration: 200ms;
+}
+
+#login-toggle {
+    display: none;
+}
+
+#login-toggle:hover, #register-toggle:hover {
+    transform: scale(1.1);
+}
+
+#login-toggle:active, #register-toggle:active {
+    transform: scale(1);
+}
+
+.login-connect-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70vh;
+    width: 100vw;
+    position: relative;
+    background-color: var(--bg-dark);
+    padding-bottom: 50px;
+}
+
+.box-1, .box-2 {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.login-container, .register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    gap: 50px;
+    height: 100%;
+    aspect-ratio: 17 / 20;
+    background-color: var(--bg-dark);
+    border: 4px solid transparent;
+    border-image: linear-gradient(var(--main), var(--main2));
+    border-image-slice: 1;
+    border-radius: 20px;
+    position: relative;
+    color: white;
+}
+
+.login-title {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-family: 'Comfortaa', cursive;
+}
+
+#login-form, #register-form {
+    align-self: center;
+    width: 80%;
+    text-align: left;
+}
+
+#email-l, #password-l, #email, #password, #username{
+    height: 30px;
+    font-size: 16px;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.input-text {
+    position: relative;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    padding-top: 20px;
+}
+
+.input-text > input {
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    z-index: 10;
+}
+
+.input-text > label {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    font-family: 'Comfortaa', cursive;
+    z-index: 9;
+    opacity: 0.8;
+    cursor: text;
+}
+
+#email-l:focus, #password-l:focus, #email:focus, #password:focus, #username:focus{
+    border-bottom: 2px solid var(--main2);
+}
+
+#email-l:focus ~ label,
+#password-l:focus ~ label,
+#email:focus ~ label,
+#password:focus ~ label,
+#username:focus ~ label {
+    bottom: 30px;
+    color: #9370db;
+}
+
+#email-l ~ label.active,
+#password-l ~ label.active,
+#email ~ label.active,
+#password ~ label.active,
+#username ~ label.active {
+    bottom: 30px;
+    color: #9370db;
+}
+  
+#forgot {
+    font-family: 'Comfortaa', cursive;
+    margin-bottom: 10px;
+}
+
+#login-button, #register-button {
+    margin-top: 50px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    height: 2.9em;
+    width: 8.5em;
+    border: none;
+    border-radius: 12px;
+    text-align: right;
+    cursor: pointer;
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px;
+    background-color: var(--main2);
+}
+
+#login-button:active, #register-button:active {
+    transform: translateX(-50%) scale(0.95);
+    background-color: var(--main);
+}
+
+#login-button > svg, #register-button svg {
+    width: 1.6em;
+    margin: -0.2em 0.8em 1em;
+    position: absolute;
+    display: flex;
+    transition: all 0.2s ease;
+}
+
+#login-button:hover svg, #register-button:hover svg {
+    transform: translateX(5px);
+}
+
+.login-button-text {
+    margin: 0 1.5em
+}
+
+#register-button {
+    margin-bottom: 20px;
+}
+
+.register-container {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    background-color: #9370db;
+    height: 3rem;
+    font-size: 15px;
+    overflow: hidden;
+}
+
+.footer-items {
+    margin: 2rem;
+}
+
+#github, #mail, #linkedin {
+    height: 1.4rem;
+}
+
+#name {
+    font-family: 'DM Serif Display', serif;
+}
+
+@media (max-width: 700px) {
+    .footer-items {
+        margin: 1rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-items {
+        margin: 1rem;
+    }
+
+    #github, #mail, #linkedin {
+        height: 1rem;
+    }
+
+    .footer {
+        font-size: 12px;
+    }
+}
